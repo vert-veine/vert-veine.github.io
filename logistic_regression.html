@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+        }
+        #titre {
+            border: 1px solid black;
+            width : 240px;
+            margin : 40px;
+            padding : 4px;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.css" integrity="sha384-OH8qNTHoMMVNVcKdKewlipV4SErXqccxxlg6HC9Cwjr5oZu2AdBej1TndeCirael" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.js" integrity="sha384-ImWHyYvDPlRzwFnvLhG9Jcpm/7qL4SVIuJK0C6Rj+Mf7fpeNJCLCynC+EVz4kCSA" crossorigin="anonymous"></script>
+    
+    <script>
+    const displayLtx = (e, i)=>{
+        let element = document.getElementById('ltk'+ i)
+        if(element){
+            katex.render(formulas[i], element, {
+                throwOnError: false
+            })
+        }
+    }
+
+    const formulas = [
+        String.raw`x`,
+        String.raw`y`,
+        String.raw`\hat y`,
+        String.raw`w`,
+        String.raw`n_x`,
+        String.raw`b`,
+        String.raw`\begin{cases} z = w^T x + b \\ a = \sigma(z) \end{cases}`, 
+        
+        String.raw`\sigma`, 
+        String.raw``,
+        String.raw``,
+        String.raw``,
+
+        String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,
+        String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,
+
+        String.raw`\cal L_1(\hat y, y) = -(y\ log(\hat y) + (1-y)\ log(1-\hat y))`,
+        String.raw`\cal L_2(\hat y, y) = \frac 1 2 (\hat y - y) ^2`,
+
+        String.raw`C`,
+        String.raw`\cal J`,
+        String.raw`w`,        
+        String.raw`b`,
+        String.raw`C(w, b) = \frac 1 m\sum_{i=1}^{n}\cal L(\hat y, y) `,
+
+        String.raw`- \nabla C`,
+        String.raw`\hat y`,
+    ]
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        for (const [i, s] of formulas.entries()) {
+            displayLtx(s, i)
+        }
+    });
+        </script>
+
+  </head>
+<body>
+
+<div id="e">
+    <div id="titre">Régression logistique</div>
+
+
+    <a href="https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">Visionnage préparatoire </a>
+    <br>
+    <br>
+    
+    Soient :<br> 
+    <span id="ltk0"></span>  : le vecteur d'entrée <br>
+    <br>
+    <span id="ltk1"></span> :  le vecteur de sortie<br>
+    <span id="ltk2"></span>  : la prévision du modèle <br>
+
+    <br><br>Les paramètres du modèle de régression logistique sont : <br>
+    Un vecteur : <span id="ltk3"></span> de taille  <span id="ltk4"></span>.<br>
+    Un biais <span id="ltk5"></span> réél. <br>
+    <br>
+    <span id="ltk6"></span><br>
+    (<span id="ltk7"></span> étant la foncion sigmoïde)<br>
+
+    <br><br>
+    Soit <span id="ltk20"> </span> la function <i>Loss</i> qui mesure la différence entre la prédiction et le résultat désiré : <br>
+    On peut choisir parmi les fonctions suivantes : <br>
+    <span id="ltk21"></span> <br>
+    <span id="ltk22"></span> <br><br>
+
+    La fonction <i>Coût</i> <span id="ltk23"></span> (parfois notée <span id="ltk24"></span>) est ensuite calculée pour un <i>set</i> entier de données <i>étiquetées</i>. <br>
+    Cette fonction a pour paramètres <span id="ltk25"></span> et <span id="ltk26"></span> : <br>
+    <span id="ltk27"></span>
+
+    <br><br>
+    La <i>descente de gradient </i>: calcul de <span id="ltk28"></span>
+
+    <br><br>
+    <u>Exercice :</u> Écrire le programme de ce modèle de régression logistique <br>
+    <a href="https://www.youtube.com/watch?v=YYEJ_GUguH">Correction </a>
+</div>
+
+</body>
+
+</html> 
