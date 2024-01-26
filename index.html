@@ -1,26 +1,94 @@
+<!DOCTYPE html>
+
 <html>
-<head>
-
-
-<script type="module" type="text/javascript">
-    import katex from 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.mjs';
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.css" integrity="sha384-OH8qNTHoMMVNVcKdKewlipV4SErXqccxxlg6HC9Cwjr5oZu2AdBej1TndeCirael" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.js" integrity="sha384-ImWHyYvDPlRzwFnvLhG9Jcpm/7qL4SVIuJK0C6Rj+Mf7fpeNJCLCynC+EVz4kCSA" crossorigin="anonymous"></script>
     
-</script>
-<script nomodule defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.js" integrity="sha384-ImWHyYvDPlRzwFnvLhG9Jcpm/7qL4SVIuJK0C6Rj+Mf7fpeNJCLCynC+EVz4kCSA" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.css" integrity="sha384-OH8qNTHoMMVNVcKdKewlipV4SErXqccxxlg6HC9Cwjr5oZu2AdBej1TndeCirael" crossorigin="anonymous">
+    <script>
+    const displayLtx = (e, i)=>{
+        let element = document.getElementById('ltk'+ i)
+        if(element){
+            katex.render(formulas[i], element, {
+                throwOnError: false
+            })
+        }
+    }
 
-</head>
+    const formulas = [
+        String.raw`x`,
+        String.raw`y`,
+        String.raw`\hat y`,
+        String.raw`w`,
+        String.raw`b`,
+        String.raw`z = w^T x + b `,
+        String.raw`a = \sigma(z)`,
+        
+        String.raw`l`,
+        String.raw`z^{(l)} = w^{(l)} a^{(l-1)} + b^{(l)} `,
+        String.raw`a^{(l)} = \sigma(z^{(l)})`,
 
+        String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,
+        String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,
+
+        String.raw`\cal L`,
+        String.raw`\cal L(\hat y, y) = -(y\ log(\hat y) + (1-y)\ log(1-\hat y))`,
+
+        String.raw`\cal L(a, y) = -(y\ log(a) + (1-y)\ log(1-a))`,
+        String.raw`\dfrac{∂ \cal L}{∂ a} =  da `,
+        
+        String.raw` da = - \dfrac y a +  \dfrac {1 - y } {1 - a} `,
+
+        String.raw`z = w^T\ + \ b   `,
+        String.raw`\hat y`,
+    ]
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        for (const [i, s] of formulas.entries()) {
+            displayLtx(s, i)
+        }
+    });
+        </script>
+
+  </head>
 <body>
 
-<div id="e"></div>
+<div id="e">
 
-    <script>
-        let element = document.getElementById('e')
-        katex.render(String.raw`c = \pm\sqrt{a^2 + b^2}`, element, {
-        throwOnError: false
-    });
-</script>
+    Soient :<br> 
+    <span id="ltk0"></span>  : le vecteur d'entrée <br>
+    <br>
+    <span id="ltk1"></span> :  le vecteur de sortie<br>
+    <span id="ltk2"></span>  : la prévision du modèle <br>
+
+
+
+    <br><br>Les paramètres du modèle sont, pour chaque neuronne : <br>
+    les poids (weigths ) : <span id="ltk3"></span><br>
+    les biais : <span id="ltk4"></span> <br>
+    <br>
+    <span id="ltk5"></span><br>
+    <span id="ltk6"></span>
+
+    <br><br>
+    En annotant chaque couche (avec son indice <span id="ltk7"></span> en exposant) :<br>
+    <span id="ltk8"></span><br>
+    <span id="ltk9"></span><br>
+
+    <br><br>Pour un réseau avec une couche cachée, celà donne : <br>
+    [TODO] <br><br><br><br>
+
+
+    Soit <span id="ltk20"> </span> la function Loss qui mesure la différence entre la prédiction et le résultat désiré. : <br>
+    <span id="ltk21"></span> <br><br>
+
+    Avec <span id="ltk22"> </span>, [et en utilisant l'abus de notation 
+
+    <span id="ltk23">  </span>] , On a :<br>
+        
+    <span id="ltk24"> </span> 
+</div>
+
 </body>
 
-</html>
+</html> 
