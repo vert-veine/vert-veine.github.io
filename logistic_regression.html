@@ -35,11 +35,11 @@
         String.raw`w`,
         String.raw`n_x`,
         String.raw`b`,
-        String.raw`\begin{cases} z = w^T x + b \\ a = \sigma(z) \end{cases}`, 
+        String.raw`\sigma`,
         
         String.raw`\sigma`, 
         String.raw`\boxed {\hat y = \sigma(w^T x + b)} `, 
-        String.raw``,
+        String.raw`\begin{cases} z = w^T x + b \\ a = \sigma(z) \end{cases}`, 
         String.raw``,
 
         String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,
@@ -57,9 +57,10 @@
         String.raw`- \nabla C`,
         String.raw`C(w,b) = C(\theta)`,
         String.raw`C'(\theta) = \begin{bmatrix}\dfrac{∂ C}{∂ w} \\\\ \dfrac{∂ C}{∂ b} \end{bmatrix} = [...] = \begin{bmatrix} \sum 2 x_i (\hat y_i - y_i) \\\\ \sum 2 (\hat y_i - y_i) \end{bmatrix}`,
-        String.raw`    \begin{cases} w = w-\alpha \ dw \\ b = b-\alpha \ db  \end{cases}`,
-        String.raw`    dw = \dfrac{∂ C}{∂ w}`,
-        String.raw`    db = \dfrac{∂ b}{∂ w}`,
+        String.raw`\begin{cases} w = w-\alpha \ dw \\ b = b-\alpha \ db  \end{cases}`,
+        String.raw`\alpha`,
+        String.raw`dw = \dfrac{∂ C}{∂ w}`,
+        String.raw`db = \dfrac{∂ b}{∂ w}`,
     ]
 
       document.addEventListener("DOMContentLoaded", (event) => {
@@ -92,9 +93,11 @@
     <u>Le modèle</u><br>
     La prévision du modèle est donnée par la formule :
     <span id="ltk8"></span>
-    <br><br>Les paramètres de ce modèle de régression logistique sont : <br>
+    <br>  Avec  <span id="ltk6"></span> la fonction sigmoïde . <br>
+    <br>Les paramètres de ce modèle de régression logistique sont : <br>
     Un vecteur : <span id="ltk3"></span> de taille  <span id="ltk4"></span>.<br>
     Un biais <span id="ltk5"></span> réél. <br>
+
     <br>
     <!-- On pourra noter : 
     <span id="ltk6"></span><br>
@@ -112,7 +115,7 @@
     <br><br>
     <u>La <i>descente de gradient </i></u>: Calcul de <span id="ltk28"></span> <br> <br>
 
-    <img src="./gradient_descent.png") width="20%"/> <br><br>
+    <img src="./img/gradient_descent.png") width="20%"/> <br><br>
 
     C peut être vue comme fonction d'un paramètre Théta :  <span id="ltk29"></span>  <br><br>
     
@@ -121,15 +124,15 @@
     <br><br>À chaque étape on peut donc modifier les paramètres du modèle avec les formules : 
     <span id="ltk31"></span> 
         
-    
-    <br><br>(En notant <span id="ltk32"></span> et <span id="ltk33"></span> ).
+    <br>Avec un taux d'apprentissage (ou learning rate) <span id="ltk32"></span>. <br>
+    <br><br>(En notant <span id="ltk33"></span> et <span id="ltk34"></span> ).
 
     <br><br>
     <br><br>
     <br><br>
     <br><br>
     <u>Exercice :</u> Écrire un programme de ce modèle de régression logistique <br> <br>
-    <img src="./code_logisticReg.png") width="40%"/>
+    <img src="./img/code_logisticReg.png") width="40%"/>
 
 
         <br><br>
