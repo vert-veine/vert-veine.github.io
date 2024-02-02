@@ -56,7 +56,7 @@
 
         String.raw`- \nabla C`,
         String.raw`C(w,b) = C(\theta)`,
-        String.raw`C'(\theta) = \begin{bmatrix}\dfrac{∂ C}{∂ w} \\\\ \dfrac{∂ C}{∂ b} \end{bmatrix} = [...] = \begin{bmatrix} \sum 2 x_i (\hat y_i - y_i) \\\\ \sum 2 (\hat y_i - y_i) \end{bmatrix}`,
+        String.raw`\nabla C = \begin{bmatrix}\dfrac{∂ C}{∂ w} \\\\ \dfrac{∂ C}{∂ b} \end{bmatrix} = [...] = \begin{bmatrix} \sum 2 x_i (\hat y_i - y_i) \\\\ \sum 2 (\hat y_i - y_i) \end{bmatrix}`,
         String.raw`\begin{cases} w = w-\alpha \ dw \\ b = b-\alpha \ db  \end{cases}`,
         String.raw`\alpha`,
         String.raw`dw = \dfrac{∂ C}{∂ w}`,
@@ -78,7 +78,6 @@
 
     <br> La <i>régression logistique</i> est une méthode de classification <i>supervisée</i>. <br>
     Son modèle  permet de classer des données en deux classes, avec un nombre de paramètres limités.
-    <br> Elle met en œuvre des concepts qui seront présents dans les réseaux de neuronnes comme le coût ou la descente de gradient.
 
     <br>
     <br>
@@ -93,7 +92,7 @@
     <u>Le modèle</u><br>
     La prévision du modèle est donnée par la formule :
     <span id="ltk8"></span>
-    <br>  Avec  <span id="ltk6"></span> la fonction sigmoïde . <br>
+    <br>  Avec  <span id="ltk6"></span> la fonction <a href="https://fr.wikipedia.org/wiki/Sigmo%C3%AFde_(math%C3%A9matiques)">sigmoïde</a> . <br>
     <br>Les paramètres de ce modèle de régression logistique sont : <br>
     Un vecteur : <span id="ltk3"></span> de taille  <span id="ltk4"></span>.<br>
     Un biais <span id="ltk5"></span> réél. <br>
@@ -116,20 +115,17 @@
     <u>La <i>descente de gradient </i></u>: Calcul de <span id="ltk28"></span> <br> <br>
 
     <img src="./img/gradient_descent.png") width="20%"/> <br><br>
-
-    C peut être vue comme fonction d'un paramètre Théta :  <span id="ltk29"></span>  <br><br>
     
-    On a : </span>:<br><br><span id="ltk30"></span> 
+<br><span id="ltk30"></span> 
 
-    <br><br>À chaque étape on peut donc modifier les paramètres du modèle avec les formules : 
-    <span id="ltk31"></span> 
-        
-    <br>Avec un taux d'apprentissage (ou learning rate) <span id="ltk32"></span>. <br>
-    <br><br>(En notant <span id="ltk33"></span> et <span id="ltk34"></span> ).
+<br><br>À chaque étape on peut donc modifier les paramètres du modèle avec les formules : 
+<span id="ltk31"></span> 
 
-    <br><br>
-    <br><br>
-    <br><br>
+<br>(en notant <span id="ltk33"></span> et <span id="ltk34"></span> )
+, avec un <i>taux d'apprentissage</i> (ou <i>learning rate</i>) <span id="ltk32"></span>. <br>
+
+<br><br>
+<a href="https://www.youtube.com/watch?v=IHZwWFHWa-w#t=5m20s"> Ressource : Le gradient vu par 3Blue1Brown </a> <br>
     <br><br>
     <u>Exercice :</u> Écrire un programme de ce modèle de régression logistique <br> <br>
     <img src="./img/code_logisticReg.png") width="40%"/>
