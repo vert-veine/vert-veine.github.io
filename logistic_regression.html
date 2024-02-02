@@ -14,6 +14,36 @@
             padding : 4px;
             text-align: center;
         }
+/* Styles de base pour le lien */
+a {
+  position: relative;
+  text-decoration: none;
+  color: #333; /* Couleur du texte */
+}
+
+/* Pseudo-élément pour le soulignement graduel */
+a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Hauteur du trait */
+  background: linear-gradient(to right, #333 0%, #333 50%, transparent 50%, transparent 100%);
+  transform: scaleX(0); /* Échelle initiale du trait (non visible) */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease, background 0.3s ease-out; /* Ajout de la transition pour le fond */
+}
+
+/* Animation du soulignement lors du survol */
+a:hover::after {
+  transform: scaleX(1); /* Échelle du trait à 100% lors du survol */
+  transform-origin: bottom left;
+  background: linear-gradient(to right, #333 0%, #333 100%); /* Fond noir pendant le survol */
+}
+
+
+
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.css" integrity="sha384-OH8qNTHoMMVNVcKdKewlipV4SErXqccxxlg6HC9Cwjr5oZu2AdBej1TndeCirael" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.js" integrity="sha384-ImWHyYvDPlRzwFnvLhG9Jcpm/7qL4SVIuJK0C6Rj+Mf7fpeNJCLCynC+EVz4kCSA" crossorigin="anonymous"></script>
@@ -54,9 +84,9 @@
         String.raw`b`,
         String.raw`C(w, b) = \frac 1 m\sum_{i=1}^{n}\cal L(\hat y_i, y_i) `,
 
-        String.raw`- \nabla C`,
+        String.raw`- \vec {\nabla} C`,
         String.raw`C(w,b) = C(\theta)`,
-        String.raw`\nabla C = \begin{bmatrix}\dfrac{∂ C}{∂ w} \\\\ \dfrac{∂ C}{∂ b} \end{bmatrix} = [...] = \begin{bmatrix} \sum 2 x_i (\hat y_i - y_i) \\\\ \sum 2 (\hat y_i - y_i) \end{bmatrix}`,
+        String.raw`\vec { \nabla } C= \begin{bmatrix}\dfrac{∂ C}{∂ w} \\\\ \dfrac{∂ C}{∂ b} \end{bmatrix} = [...] = \begin{bmatrix} \sum 2 x_i (\hat y_i - y_i) \\\\ \sum 2 (\hat y_i - y_i) \end{bmatrix}`,
         String.raw`\begin{cases} w = w-\alpha \ dw \\ b = b-\alpha \ db  \end{cases}`,
         String.raw`\alpha`,
         String.raw`dw = \dfrac{∂ C}{∂ w}`,
@@ -125,7 +155,10 @@
 , avec un <i>taux d'apprentissage</i> (ou <i>learning rate</i>) <span id="ltk32"></span>. <br>
 
 <br><br>
-<a href="https://www.youtube.com/watch?v=IHZwWFHWa-w#t=5m20s"> Ressource : Le gradient vu par 3Blue1Brown </a> <br>
+<u> Ressources : </u><br>
+<a href="https://www.youtube.com/watch?v=LtHUnGnKblQ"> Le gradient, la dérivée directionnelle</a> <br>
+<a href="https://www.youtube.com/watch?v=IHZwWFHWa-w#t=5m20s">Le gradient vu par 3Blue1Brown </a> <br>
+
     <br><br>
     <u>Exercice :</u> Écrire un programme de ce modèle de régression logistique <br> <br>
     <img src="./img/code_logisticReg.png") width="40%"/>
