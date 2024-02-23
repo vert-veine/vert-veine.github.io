@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+}
+#titre {
+    border: 1px solid black;
+    width : 440px;
+    margin : 40px;
+    padding : 4px;
+    text-align: center;
+}
+/* Styles de base pour le lien */
+a {
+position: relative;
+text-decoration: none;
+color: #333; /* Couleur du texte */
+}
+
+/* Pseudo-élément pour le soulignement graduel */
+a::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 2px; /* Hauteur du trait */
+
+/* background: linear-gradient(to right,   #3984a7 0%, #3984a7 50%, transparent 50%, transparent 100%); */
+/* transform: scaleX(0);  */
+/* transform-origin: bottom left; */
+/* transition: transform 0.0s ease, background 0.3s ease-out;  */
+
+background-color: #92CBE5;
+
+
+}
+
+/* Animation du soulignement lors du survol */
+a:hover::after {
+transform: scaleX(1); /* Échelle du trait à 100% lors du survol */
+transform-origin: bottom left;
+background: linear-gradient(to right, #3984a7 0%, #3984a7 100%); /* Fond noir pendant le survol */
+transition: transform 0.25s ease, background 0.3s ease-out; /* Ajout de la transition pour le fond */
+}
+a:active {
+    color: #3984a7;
+  }

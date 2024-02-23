@@ -1,50 +1,9 @@
+
 <!DOCTYPE html>
 
 <html>
   <head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            font-size: 17px;
-        }
-        #titre {
-            border: 1px solid black;
-            width : 440px;
-            margin : 40px;
-            padding : 4px;
-            text-align: center;
-        }
-/* Styles de base pour le lien */
-a {
-  position: relative;
-  text-decoration: none;
-  color: #333; /* Couleur du texte */
-}
-
-/* Pseudo-élément pour le soulignement graduel */
-a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px; /* Hauteur du trait */
-  background: linear-gradient(to right, #333 0%, #333 50%, transparent 50%, transparent 100%);
-  transform: scaleX(0); /* Échelle initiale du trait (non visible) */
-  transform-origin: bottom right;
-  transition: transform 0.3s ease, background 0.3s ease-out; /* Ajout de la transition pour le fond */
-}
-
-/* Animation du soulignement lors du survol */
-a:hover::after {
-  transform: scaleX(1); /* Échelle du trait à 100% lors du survol */
-  transform-origin: bottom left;
-  background: linear-gradient(to right, #333 0%, #333 100%); /* Fond noir pendant le survol */
-}
-
-
-
-    </style>
+    <link href="./css2.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.css" integrity="sha384-OH8qNTHoMMVNVcKdKewlipV4SErXqccxxlg6HC9Cwjr5oZu2AdBej1TndeCirael" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.js" integrity="sha384-ImWHyYvDPlRzwFnvLhG9Jcpm/7qL4SVIuJK0C6Rj+Mf7fpeNJCLCynC+EVz4kCSA" crossorigin="anonymous"></script>
     
@@ -82,7 +41,7 @@ a:hover::after {
         String.raw`\cal J`,
         String.raw`w`,        
         String.raw`b`,
-        String.raw`C(w, b) = \frac 1 m\sum_{i=1}^{n}\cal L(\hat y_i, y_i) `,
+        String.raw`C(w, b) = \frac 1 m\sum_{i=1}^{m}\cal L(\hat y_i, y_i) `,
 
         String.raw`- \vec {\nabla} C`,
         String.raw`C(w,b) = C(\theta)`,
@@ -156,7 +115,6 @@ a:hover::after {
 
 <br><br>
 <u> Ressources : </u><br>
-<a href="https://www.youtube.com/watch?v=LtHUnGnKblQ"> Le gradient, la dérivée directionnelle</a> <br>
 <a href="https://www.youtube.com/watch?v=IHZwWFHWa-w#t=5m20s">Le gradient vu par 3Blue1Brown </a> <br>
 
     <br><br>
@@ -164,11 +122,16 @@ a:hover::after {
     <img src="./img/code_logisticReg.png") width="40%"/>
 
 
-        <br><br>
+    <br><br>
 
-    
-    Quelques vidéos sur  
-    <a href="https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">les réseaux de neuronnes</a> <br>
+    <u> Pour aller plus loin : </u> <br>
+    <a href="https://www.youtube.com/watch?v=LtHUnGnKblQ"> Tout sur le gradient</a> : 
+    Principes, notations, dérivées, zoom détaillé sur le Gradient comme vous ne l'avez jamais vu ! 
+
+        <br><br>
+    <u> Préparation du prochain TP : </u><br>  
+    <a href="https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">Les réseaux de neuronnes</a>  par 3Blue1Brown
+    <br>
 </div>
 
 </body>
