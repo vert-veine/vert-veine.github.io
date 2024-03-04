@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link href="./css2.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.css" integrity="sha384-OH8qNTHoMMVNVcKdKewlipV4SErXqccxxlg6HC9Cwjr5oZu2AdBej1TndeCirael" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.js" integrity="sha384-ImWHyYvDPlRzwFnvLhG9Jcpm/7qL4SVIuJK0C6Rj+Mf7fpeNJCLCynC+EVz4kCSA" crossorigin="anonymous"></script>
+    
+    <script>
+    const displayLtx = (e, i)=>{
+        let element = document.getElementById('ltk'+ i)
+        if(element){
+            katex.render(formulas[i], element, {
+                throwOnError: false
+            })
+        }
+    }
+
+    const formulas = [
+        String.raw`x `, 
+        String.raw`a^{(0)} = x`,
+        String.raw`a^{(1)} = \begin{bmatrix} a^{(1)}_1 \\ a^{(1)}_2 \\ a^{(1)}_3 \\ a^{(1)}_4 \\ \end{bmatrix}`,
+        String.raw`a^{(2)} `,
+        String.raw`\hat y`,
+
+        String.raw` \begin{cases} z = w^T x + b \\ a = \sigma(z) \end{cases}`, 
+        String.raw``, 
+    ]
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        for (const [i, s] of formulas.entries()) {
+            displayLtx(s, i)
+        }
+    });
+        </script>
+
+  </head>
+<body>
+
+<div id="e">
+    <div id="titre">Perceptron à une couche cachée</div>
+
+    
+
+    <p id="reseau1">
+    <br>Représentation d'un réseau à deux couches : <br>
+    <img src="./img/nn_representation.png") width="40%"/>
+    <br><br>
+    </p>
+</div>
+
+
+<br>Le schéma de droite représente le réseau avec une couche cachée avec 4 neuronnes, et une valeur de sortie.
+<br>Le schéma de gauche représente un neuronne.
+
+<br><br>
+<u>Le modèle</u>
+<br> Les données en entrées sont représentées par un vecteur <span id="ltk0"></span> (qui ne compte pas comme une couche), 
+<br>que l'on pourra aussi noter <span id="ltk1"></span> en utilisant la même notation que pour une couche quelconque.
+<br><br>Ensuite la couche cachée de neuronnes qui va générer  des valeurs d'activations  <span id="ltk2"></span>.
+<br>La couche de sortie va générer une valeur d'activation <span id="ltk3"></span> égale à <span id="ltk4"></span>.
+
+
+<br><br><br>
+<u>Un neuronne</u>
+<br> Ainsi que représenté sur la figure un neuronne va fonctionner suivant les formules suivantes : 
+<span id="ltk5"></span>
+</body>
+
+</html> 
