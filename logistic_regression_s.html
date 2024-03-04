@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link href="./css2.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.css" integrity="sha384-OH8qNTHoMMVNVcKdKewlipV4SErXqccxxlg6HC9Cwjr5oZu2AdBej1TndeCirael" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.js" integrity="sha384-ImWHyYvDPlRzwFnvLhG9Jcpm/7qL4SVIuJK0C6Rj+Mf7fpeNJCLCynC+EVz4kCSA" crossorigin="anonymous"></script>
+    
+    <script>
+    const displayLtx = (e, i)=>{
+        let element = document.getElementById('ltk'+ i)
+        if(element){
+            katex.render(formulas[i], element, {
+                throwOnError: false
+            })
+        }
+    }
+
+    const formulas = [
+        String.raw`\kern{2em} z^1 = w^t . x^1 + b, \kern{4em}a^1 = \sigma(z^1)`,
+        String.raw`\kern{2em}z^2 = w^t . x^2 + b, \kern{4em}a^2 = \sigma(z^2)`,
+        String.raw`\kern{6em}z^i = w^t . x^i + b, \kern{4em}a^i = \sigma(z^i)`,
+        String.raw` X = \begin{bmatrix}  |  & | &  | &  | & ... & | & ... \\ x^1 &x^2 &x^3 &x^4 & ...& x^i & ... \\ |  & | &  | &  | & ... & | & ...\end{bmatrix}`,
+        String.raw`(n_x, m)`,
+        String.raw`Z = \begin{bmatrix} z^1 &  z^2 &...& z^i &... & z^m \end{bmatrix} = w^t.X+ \begin{bmatrix} b &  b &...& b &... & b \end{bmatrix}`,
+        String.raw`Z = \begin{bmatrix} w^t x^1 + b & w^t x^2 + b  &...& w^t x^i + b  &... &  w^t x^m + b\end{bmatrix} `,
+        String.raw`A = \begin{bmatrix} \sigma(z^1) & \sigma(z^2)   &...& \sigma(z^i)  &... &  \sigma(z^m)  \end{bmatrix} `,
+        String.raw`A = \sigma(Z) `,
+    ]
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        for (const [i, s] of formulas.entries()) {
+            displayLtx(s, i)
+        }
+    });
+        </script>
+
+  </head>
+<body>
+    <div id="titre">Éléments de solution pour coder une régression logistique en Python</div>
+
+    <u>Vectorisation de la prévision</u>
+    <br>
+    <br>Plutôt que de faire des calculs image par image, on peut faire un traitement par lot (batch) 
+
+    <br>Image 1 : <span id="ltk0"></span>
+    <br>Image 2  : <span id="ltk1"></span>
+    <br> <br>Et ainsi pour chaque image i : <br><span id="ltk2"></span>
+    
+    <br><br>
+    <br>En écrivant le vecteur <span id="ltk3"></span> de taille <span id="ltk4"></span>
+
+    <br><br> On aura : <br> 
+    <span id="ltk5"></span>
+    <br> <span id="ltk6"></span>
+
+    <br><br>Ce qui s'écrit en python (broadcasting) : Z = np.dot(w.T, X) + b
+
+    <br><br>De même   <span id="ltk7"></span>  s'écrira <span id="ltk8"></span> en Python
+
+    <br><br><u>Correction complète : </u>
+    <br>Une vidéo de <a href="https://www.youtube.com/watch?v=YYEJ_GUguHw">live coding</a>.
+
+</body>
+
+</html> 
