@@ -26,7 +26,7 @@
         String.raw`Z = \begin{bmatrix} z^1 &  z^2 &...& z^i &... & z^m \end{bmatrix} = w^t.X+ \begin{bmatrix} b &  b &...& b &... & b \end{bmatrix}`,
         String.raw`Z = \begin{bmatrix} w^t x^1 + b & w^t x^2 + b  &...& w^t x^i + b  &... &  w^t x^m + b\end{bmatrix} `,
         String.raw`A = \begin{bmatrix} \sigma(z^1) & \sigma(z^2)   &...& \sigma(z^i)  &... &  \sigma(z^m)  \end{bmatrix} `,
-        String.raw`A = \sigma(Z) `,
+        String.raw`A = sigmoid(Z) `,
     ]
 
       document.addEventListener("DOMContentLoaded", (event) => {
