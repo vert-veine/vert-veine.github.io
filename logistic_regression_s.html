@@ -3,6 +3,7 @@
 
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css2.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.css" integrity="sha384-OH8qNTHoMMVNVcKdKewlipV4SErXqccxxlg6HC9Cwjr5oZu2AdBej1TndeCirael" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.js" integrity="sha384-ImWHyYvDPlRzwFnvLhG9Jcpm/7qL4SVIuJK0C6Rj+Mf7fpeNJCLCynC+EVz4kCSA" crossorigin="anonymous"></script>
@@ -18,15 +19,15 @@
     }
 
     const formulas = [
-        String.raw`\kern{2em} z^1 = w^t . x^1 + b, \kern{4em}a^1 = \sigma(z^1)`,
-        String.raw`\kern{2em}z^2 = w^t . x^2 + b, \kern{4em}a^2 = \sigma(z^2)`,
-        String.raw`\kern{6em}z^i = w^t . x^i + b, \kern{4em}a^i = \sigma(z^i)`,
+        String.raw`\kern{2em} z^1 = w^t . x^1 + b, \kern{4em}\hat y^1 = \sigma(z^1)`,
+        String.raw`\kern{2em}z^2 = w^t . x^2 + b, \kern{4em}\hat y^2 = \sigma(z^2)`,
+        String.raw`\kern{6em}z^i = w^t . x^i + b, \kern{4em}\hat y^i = \sigma(z^i)`,
         String.raw` X = \begin{bmatrix}  |  & | &  | &  | & ... & | & ... \\ x^1 &x^2 &x^3 &x^4 & ...& x^i & ... \\ |  & | &  | &  | & ... & | & ...\end{bmatrix}`,
         String.raw`(n_x, m)`,
         String.raw`Z = \begin{bmatrix} z^1 &  z^2 &...& z^i &... & z^m \end{bmatrix} = w^t.X+ \begin{bmatrix} b &  b &...& b &... & b \end{bmatrix}`,
-        String.raw`Z = \begin{bmatrix} w^t x^1 + b & w^t x^2 + b  &...& w^t x^i + b  &... &  w^t x^m + b\end{bmatrix} `,
-        String.raw`A = \begin{bmatrix} \sigma(z^1) & \sigma(z^2)   &...& \sigma(z^i)  &... &  \sigma(z^m)  \end{bmatrix} `,
-        String.raw`A = sigmoid(Z) `,
+        String.raw`\kern{1em} = \begin{bmatrix} w^t x^1 + b & w^t x^2 + b  &...& w^t x^i + b  &... &  w^t x^m + b\end{bmatrix} `,
+        String.raw`\hat Y = \begin{bmatrix} \sigma(z^1) & \sigma(z^2)   &...& \sigma(z^i)  &... &  \sigma(z^m)  \end{bmatrix} `,
+        String.raw`sigmoid(Z) `,
     ]
 
       document.addEventListener("DOMContentLoaded", (event) => {
