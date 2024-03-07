@@ -28,7 +28,7 @@
         
         String.raw`\sigma`, 
         String.raw`\boxed {\hat y = \sigma(w^t x + b)} `, 
-        String.raw`\begin{cases} z = w^T x + b \\ a = \sigma(z) \end{cases}`, 
+        String.raw`\begin{cases} z = w^T x + b \\ a = \sigma(z) \end{cases}`,  //9
         String.raw``,
 
         String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,String.raw`\cal L`,
@@ -43,7 +43,7 @@
         String.raw`b`,
         String.raw`C(w, b) = \frac 1 m\sum_{i=1}^{m}\cal L(\hat y_i, y_i) `,
 
-        String.raw`- \vec {\nabla} C`,
+        String.raw`- \vec {\nabla} C`, //20 
         String.raw`C(w,b) = C(\theta)`,
         String.raw`\vec { \nabla } C= \begin{bmatrix}\dfrac{∂ C}{∂ w} \\\\ \dfrac{∂ C}{∂ b} \end{bmatrix} = [...] = \begin{bmatrix} \sum 2 x_i (\hat y_i - y_i) \\\\ \sum 2 (\hat y_i - y_i) \end{bmatrix}`,
         String.raw`\begin{cases} w = w-\alpha \ dw \\ b = b-\alpha \ db  \end{cases}`,
@@ -51,6 +51,9 @@
         String.raw`dw = \dfrac{∂ C}{∂ w}`,
         String.raw`db = \dfrac{∂ b}{∂ w}`,
         String.raw`m`,
+        String.raw`\vec {\nabla} C`,
+        String.raw`\vec {\nabla} C`,
+        String.raw`\vec {\nabla} C`, //30
     ]
 
       document.addEventListener("DOMContentLoaded", (event) => {
@@ -86,10 +89,6 @@
     Un vecteur : <span id="ltk3"></span> de taille  <span id="ltk4"></span>.<br>
     Un biais <span id="ltk5"></span> réél. <br>
 
-    <!-- On pourra noter : 
-    <span id="ltk6"></span><br>
-    (<span id="ltk7"></span> étant la foncion sigmoïde)<br> -->
-
     <br><br>
     <u>La fonction de coût</u><br>
     Soit <span id="ltk20"> </span> la function <i>Loss</i> qui mesure la différence entre la prédiction et le résultat désiré : <br>
@@ -103,18 +102,20 @@
     <br><br><br>
     <u>La <i>descente de gradient </i></u>: Calcul de <span id="ltk28"></span> <br> <br>
 
-    <img src="./img/gradient_descent.png") class="my_img" > <br><br>
+    <br><img src="./img/gradient_descent.png") class="my_img" > 
+    <br>  <br>  Le gradient <span id="ltk35"></span> de cette fonction coût (ici à 2 variables/dimensions) est une fonction dont l'image en un point de la surface est le vecteur directeur de la ligne de plus grande pente en ce point.
+    <br>Ses composantes sont calculées en dérivant suivant chaque variable : 
+    <br>
+
     
 <br><span id="ltk30"></span> 
 
-<br><br>À chaque étape on peut donc modifier les paramètres du modèle avec les formules : 
-<span id="ltk31"></span> 
-
-<br>(en notant <span id="ltk33"></span> et <span id="ltk34"></span> )
+<br><br>Pour trouver le minimum de la fonction coût, on peut donc à chaque étape modifier les paramètres du modèle avec les formules : 
+<br><span id="ltk31"></span> (en notant <span id="ltk33"></span> et <span id="ltk34"></span> )
 , avec un <i>taux d'apprentissage</i> (ou <i>learning rate</i>) <span id="ltk32"></span>. <br>
 
 <br>
- Ressource : <a href="https://www.youtube.com/watch?v=IHZwWFHWa-w#t=5m20s">Le gradient vu par 3Blue1Brown </a> <br>
+<u>Ressource :</u> <a href="https://www.youtube.com/watch?v=IHZwWFHWa-w#t=5m20s">Le gradient vu par 3Blue1Brown </a> <br>
 
 <br><br><br>
 <u>Exercice :</u> Écrire un programme de ce modèle de régression logistique <br> <br>
@@ -122,12 +123,12 @@
 
 
 <br><br>
-
+<br><br>
 <u> Pour aller plus loin : </u> <br>
 <a href="https://www.youtube.com/watch?v=LtHUnGnKblQ"> Tout sur le gradient</a> : 
 Principes, notations, dérivées, zoom détaillé sur le Gradient comme vous ne l'avez jamais vu ! 
 
-    <br><br>
+    <br><br><br><br>
 <u> Préparation du prochain TP : </u><br>  
 <a href="https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">Les réseaux de neuronnes</a>  par 3Blue1Brown
 <br>
