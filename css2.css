@@ -1,24 +1,17 @@
-.katex { font-size: 1.1em; }
-
-@media only screen and (min-width: 901px) and (max-width: 1024px) {
-  .katex { font-size: 2.1vw;
+span {
+  font-size: 2.5vh;
 }
-}
-
-
-
-
+ 
 body {
     font-family: Arial, sans-serif;
 }
-
+ 
 #titre {
     border: 2px solid #4aa4ce;
-    width : 70%;
+    width : 440px;
     margin : 40px;
     padding : 4px;
     text-align: center;
-    font-size: 17px;
 }
 /* Styles de base pour le lien */
 a {
