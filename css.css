@@ -1,47 +1,50 @@
-body {
-    font-family: Arial, sans-serif;
-    font-size: 17px;
+.my_img{
+  border: 1px solid #4AA4CE;  
 }
+
+@media only screen and (max-width: 900px) {
+  .my_img{
+    border: 1px solid #4AA4CE;  
+    width:100%;
+  }  
+}
+
+span {
+  font-size: 2.7vh;
+}
+ 
+body {
+    font-family: Arial, sans-serif;    
+    padding : 40px;
+}
+ 
 #titre {
-    border: 1px solid black;
-    width : 440px;
-    margin : 40px;
-    padding : 4px;
-    text-align: center;
+    border: 2px solid #4aa4ce;
+    padding-top : 7px;
+    padding-bottom : 7px;
+    
+    text-align: center; 
+    
 }
 /* Styles de base pour le lien */
 a {
-position: relative;
-text-decoration: none;
-color: #333; /* Couleur du texte */
-}
-
-/* Pseudo-élément pour le soulignement graduel */
-a::after {
-content: '';
-position: absolute;
-bottom: 0;
-left: 0;
-width: 100%;
-height: 2px; /* Hauteur du trait */
-
-/* background: linear-gradient(to right,   #3984a7 0%, #3984a7 50%, transparent 50%, transparent 100%); */
-/* transform: scaleX(0);  */
-/* transform-origin: bottom left; */
-/* transition: transform 0.0s ease, background 0.3s ease-out;  */
-
-background-color: #92CBE5;
-
-
-}
-
-/* Animation du soulignement lors du survol */
-a:hover::after {
-transform: scaleX(1); /* Échelle du trait à 100% lors du survol */
-transform-origin: bottom left;
-background: linear-gradient(to right, #3984a7 0%, #3984a7 100%); /* Fond noir pendant le survol */
-transition: transform 0.25s ease, background 0.3s ease-out; /* Ajout de la transition pour le fond */
-}
-a:active {
-    color: #3984a7;
+    color: black; /* Couleur initiale des liens */
+    text-decoration: none; /* Supprimer le soulignement par défaut */
+    position: relative; /* Permet de positionner le pseudo-élément absolument par rapport à son parent */
   }
+  
+  a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1.5px; /* Positionner le soulignement en dessous du texte */
+    width: 100%;
+    height: 2px; /* Hauteur du soulignement */
+    background-color: #92CBE5; /* Couleur initiale du soulignement */
+    transition: background-color 0.5s ease; /* Transition de la couleur du soulignement */
+  }
+  
+  a:hover::after {
+    background-color: #4AA4CE; /* Couleur du soulignement au survol */
+  }
+  
