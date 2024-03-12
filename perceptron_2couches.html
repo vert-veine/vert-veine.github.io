@@ -22,8 +22,8 @@
 
     const formulas = [
         String.raw`x `, 
-        String.raw`a^{(0)} = x`,
-        String.raw`a^{(1)} = \begin{bmatrix} a^{(1)}_1 \\ a^{(1)}_2 \\ a^{(1)}_3 \\ a^{(1)}_4 \\ \end{bmatrix}`,
+        String.raw`x = a^{(0)}`,
+        String.raw`a^{(1)} = \begin{pmatrix} a^{(1)}_1 \\ a^{(1)}_2 \\ a^{(1)}_3 \\ a^{(1)}_4 \\ \end{pmatrix}`,
         String.raw`a^{(2)} `,
         String.raw`\hat y`,
 
@@ -32,7 +32,12 @@
         
         String.raw`w`,
         String.raw` \begin{cases} z = w^t x + b \\ a = \sigma(z) \end{cases}`, 
+        String.raw`TOTO`, 
+        String.raw`w^{(1)} = \begin{pmatrix} 3 \\ 1 \\ 4 \\ 1\end{pmatrix} `, 
         String.raw`a`, 
+        String.raw`a`, 
+        String.raw`a`, 
+        String.raw`\begin{bmatrix} 3  1  4  1 \\ 2  0  1  3 \\ 7  4  1  8 \\ 2  3  1  4 \end{bmatrix}`, 
     ]
 
       document.addEventListener("DOMContentLoaded", (event) => {
@@ -43,13 +48,11 @@
         </script>
 
   </head>
-<body>
+<body>  
 
 <div id="e">
     <div id="titre">Perceptron à une couche cachée</div>
-
     
-
     <p id="reseau1">
     <br>Représentation d'un réseau à deux couches : <br>
     <img src="./img/nn_representation.png") id="big_nn" class="my_img" />
@@ -58,23 +61,31 @@
 </div>
 
 
-<br>Le schéma de droite représente le réseau avec une couche cachée avec 4 neuronnes, et une valeur de sortie.
 <br>Le schéma de gauche représente un neuronne.
-
-<br><br>
-<u>Le modèle</u>
-<br> Les données en entrées sont représentées par un vecteur <span id="ltk0"></span> (qui ne compte pas comme une couche), 
-<br>que l'on pourra aussi noter <span id="ltk1"></span> en utilisant la même notation que pour une couche quelconque.
-<br><br>Ensuite la couche cachée de neuronnes qui va générer  des valeurs d'activations  <span id="ltk2"></span>.
-<br>La couche de sortie va générer une valeur d'activation <span id="ltk3"></span> égale à <span id="ltk4"></span>.
-
+<br>Le schéma de droite représente le réseau avec une couche cachée avec 4 neuronnes, et une valeur de sortie.
 
 <br><br><br>
 <u>Un neuronne</u>
-<br> Un neuronne consiste en deux paramêtres internes <span id="ltk5"></span> (de la taille de la couche précédente) et <span id="ltk6"></span>, et d'une valeur de sortie dite <i>d'activation</i> calculée avec les formules ci dessous.
+<br> Un neuronne consiste en deux paramêtres internes <span id="ltk5"></span> (de la taille de la couche précédente) :
 
 <br><span id="ltk8"></span>
-<br>Cette valeur d'<i>activation</i> <span id="ltk9"></span> sera à son tour prise en compte par la couche suivante.
+<br>Ces formules permettent de calculer la <i>valeur d'activation</i> <span id="ltk9"></span> qui sera prise en compte par la couche suivante.
+
+
+<br><br>
+<u>Le modèle</u>
+<br> Les données en entrées sont représentées par un vecteur <span id="ltk0"></span>.
+<br>[Remarque : On pourra aussi noter <span id="ltk1"></span> en utilisant la même notation que pour les valeurs de sortie d'une couche quelconque.]
+<br><br>Ensuite la couche cachée de neuronnes  va générer des valeurs d'activations <span id="ltk2"></span>.
+<br>La couche de sortie va générer une valeur d'activation <span id="ltk3"></span> égale à <span id="ltk4"></span>.
+
+<br><br><br>
+<u>Exercice pratique :</u>
+L'entrée de départ est une image 2x2. <br>
+Les 4 neuronnes cachés ont actuellement comme paramêtres : <br>
+<span id="ltk10"></span> 
+
+
 
 </body>
 
