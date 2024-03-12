@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link href="./css.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.css" integrity="sha384-OH8qNTHoMMVNVcKdKewlipV4SErXqccxxlg6HC9Cwjr5oZu2AdBej1TndeCirael" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.js" integrity="sha384-ImWHyYvDPlRzwFnvLhG9Jcpm/7qL4SVIuJK0C6Rj+Mf7fpeNJCLCynC+EVz4kCSA" crossorigin="anonymous"></script>
+    
+    <script>
+    window.onload = function(e){ 
+        // 
+    }
+
+    const displayLtx = (e, i)=>{
+        let element = document.getElementById('ltk'+ i)
+        if(element){
+            katex.render(formulas[i], element, {
+                throwOnError: false
+            })
+        }
+    }
+
+    const formulas = [
+        String.raw`w^{(1)} = \begin{pmatrix} 3 \\ 1 \\ 4 \\ 1\end{pmatrix}`, 
+        String.raw`w^{(2)} = \begin{pmatrix} 3 \\ 1 \\ 4 \\ 1\end{pmatrix}`, 
+        String.raw`w^{(3)} = \begin{pmatrix} 3 \\ 1 \\ 4 \\ 1\end{pmatrix}`, 
+        String.raw`w^{(4)} = \begin{pmatrix} 3 \\ 1 \\ 4 \\ 1\end{pmatrix}`, 
+        String.raw`b^1 = 2`, 
+        String.raw`b^2 = 4`, 
+        String.raw`b^3 = 3`, 
+        String.raw`b^4 = -1`, 
+        String.raw`\begin{pmatrix} 1 \kern{1em} 3 \\ 2 \kern{1em}  4 \end{pmatrix}`, 
+        String.raw`x = \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}`, 
+        String.raw`\begin{bmatrix} 3  1  4  1 \\ 2  0  1  3 \\ 7  4  1  8 \\ 2  3  1  4 \end{bmatrix}`, 
+    ]
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        for (const [i, s] of formulas.entries()) {
+            displayLtx(s, i)
+        }
+    });
+        </script>
+
+  </head>
+<body>  
+
+<div id="e">
+    <div id="titre">Calculs manuels des valeurs d'un réseau de neuronne</div>
+
+    <br>Représentation d'un réseau à deux couches : <br>
+    <img src="./img/nn_representation.png") id="big_nn" class="my_img" />
+    <br><br>
+<br><br><br>
+<u>Exercice pratique :</u>
+
+Calculer la valeur prévue par le réseau de neuronnes, en sachant que : 
+
+<br> <br>L'image de départ est de taille 2x2 : <span id="ltk8"></span>
+
+
+<br> <br>Les 4 neuronnes cachés ont actuellement comme paramêtres : <br>
+<table ><tr class="tr_param">
+    <td ><span id="ltk1"></span> </span></td>
+    <td ><span id="ltk0"></span> </span></td>
+    <td ><span id="ltk2"></span> </span></td>
+    <td ><span id="ltk3"></span> </span></td>
+</tr></table>
+<br>  et  <table ><tr class="tr_param">
+    <td ><span id="ltk4"></span> </span></td>
+    <td ><span id="ltk5"></span> </span></td>
+    <td ><span id="ltk6"></span> </span></td>
+    <td ><span id="ltk7"></span> </span></td>
+</tr></table>
+
+<a onclick="show_or_hide()">Solution : </a>
+<br> En applatissant on aura <span id="ltk9"></span> 
+
+</body>
+
+</html> 

@@ -57,4 +57,18 @@ a {
   a:hover::after {
     background-color: #4AA4CE; /* Couleur du soulignement au survol */
   }
-  
+
+table {
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #92CBE5;;
+    padding: 8px;
+    text-align: left;
+}
+
+
+#hidden_div {
+  display: none; /* Le contenu est initialement caché */
+  border: 1px solid #4292B7;
+}
