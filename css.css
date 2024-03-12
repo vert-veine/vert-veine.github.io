@@ -2,11 +2,21 @@
   border: 1px solid #4AA4CE;  
 }
 
-@media only screen and (max-width: 900px) {
+#big_nn{
+  width : 40%;
+}
+
+
+@media only screen and (max-width: 1000px) {
   .my_img{
     border: 1px solid #4AA4CE;  
-    width:100%;
+    width:10%;
   }  
+  
+  #big_nn{
+    width : 100%;
+}
+
 }
 
 span {
