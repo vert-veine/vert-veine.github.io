@@ -68,7 +68,8 @@ th, td {
 }
 
 
-#hidden_div {
+.hidden_div {
   display: none; /* Le contenu est initialement caché */
   border: 1px solid #4292B7;
+  padding: 8px;
 }

@@ -1,0 +1,36 @@
+
+
+.visible,
+.hidden {
+  overflow: hidden;
+  /* This container should not have padding, borders, etc. */
+}
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .5s linear, height .5s linear;
+  height: 120px;
+  background-color: #D2E8EF;
+  border-radius : 5px;
+  padding:10px;
+  border: 1px solid #1B1FA8;
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  height: 0px;
+  transition: visibility 0s .5s, opacity .5s linear, height .5s linear;
+  background-color: #D2E8EF;
+  border-radius : 5px;
+  padding:10px;
+  border: 1px solid #1B1FA8;
+}
+.visible > div,
+.hidden > div {
+  /* Put any padding, border, min-height, etc. here. */
+  
+}
+.hidden > div {
+  margin-top: -10000px;
+  transition: margin-top 0s .5s;
+}

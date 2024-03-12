@@ -3,6 +3,7 @@
 <html>
   <head>
     <link href="./css.css" rel="stylesheet">
+    <link href="./css_soluce.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.css" integrity="sha384-OH8qNTHoMMVNVcKdKewlipV4SErXqccxxlg6HC9Cwjr5oZu2AdBej1TndeCirael" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.js" integrity="sha384-ImWHyYvDPlRzwFnvLhG9Jcpm/7qL4SVIuJK0C6Rj+Mf7fpeNJCLCynC+EVz4kCSA" crossorigin="anonymous"></script>
     
@@ -10,6 +11,14 @@
     window.onload = function(e){ 
         // 
     }
+
+    const f = function(id){
+        console.log('zqef')
+        const subContent =  document.querySelector("#" +id+ "> div");
+        console.log(subContent)
+    subContent.className = subContent.className =="visible" ? "hidden" : "visible"
+    }
+
 
     const displayLtx = (e, i)=>{
         let element = document.getElementById('ltk'+ i)
@@ -55,7 +64,7 @@
 
 Calculer la valeur prévue par le réseau de neuronnes, en sachant que : 
 
-<br> <br>L'image de départ est de taille 2x2 : <span id="ltk8"></span>
+<br> <br>L'image de départ (de taille 2x2) : <span id="ltk8"></span>
 
 
 <br> <br>Les 4 neuronnes cachés ont actuellement comme paramêtres : <br>
@@ -72,7 +81,16 @@ Calculer la valeur prévue par le réseau de neuronnes, en sachant que :
     <td ><span id="ltk7"></span> </span></td>
 </tr></table>
 
-<a onclick="show_or_hide()">Solution : </a>
+<div id= "soluce">
+<a onclick="f('soluce')" >Solution : </a> <br><br>
+    <div  class="hidden">
+        <div>
+
+            Da solution
+        </div>
+    </div>
+</div>
+
 <br> En applatissant on aura <span id="ltk9"></span> 
 
 </body>
