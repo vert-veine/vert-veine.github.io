@@ -28,7 +28,7 @@
         
         String.raw`w`,
         String.raw` \begin{cases} z = w^t x + b \\ a = \sigma(z) \end{cases}`, 
-        String.raw``, 
+        String.raw`a`, 
     ]
 
       document.addEventListener("DOMContentLoaded", (event) => {
@@ -67,10 +67,11 @@
 
 <br><br><br>
 <u>Un neuronne</u>
-<br> Un neuronne consiste en deux paramêtres internes <span id="ltk5"></span>( est de la taille de la couche précédente)) et <span id="ltk6"></span>.
-<br>Un neuronne va interagir avec la couche précédente pour finalement avoir pour valeur de sortie une valeur d'activation (prise en compte par la couche suivante) :
+<br> Un neuronne consiste en deux paramêtres internes <span id="ltk5"></span> (de la taille de la couche précédente) et <span id="ltk6"></span>, et d'une valeur de sortie dite <i>d'activation</i> calculée avec les formules ci dessous.
+
 <br><span id="ltk8"></span>
-<span id="ltk9"></span>
+<br>Cette valeur d'<i>activation</i> <span id="ltk9"></span> sera à son tour prise en compte par la couche suivante.
+
 </body>
 
 </html> 
