@@ -8,8 +8,8 @@
 .visible {
   visibility: visible;
   opacity: 1;
-  transition: opacity .5s linear, height .5s linear;
-  height: 140px;
+  transition: opacity .2s linear, height .2s linear;
+  height: 200px;
   background-color: #D2E8EF;
   border-radius : 5px;
   padding:10px;
@@ -19,7 +19,7 @@
   visibility: hidden;
   opacity: 0;
   height: 0px;
-  transition: visibility 0s .5s, opacity .5s linear, height .5s linear;
+  transition: visibility 0s .2s, opacity .2s linear, height .2s linear;
   background-color: #D2E8EF;
   border-radius : 5px;
   padding:10px;
@@ -32,5 +32,5 @@
 }
 .hidden > div {
   margin-top: -10000px;
-  transition: margin-top 0s .5s;
+  transition: margin-top 0s .2s;
 }

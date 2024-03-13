@@ -14,10 +14,21 @@
 
     const f = function(id){
         const subContent =  document.querySelector("#" +id+ "> div");
+        
+        // console.log( window.screen.width, window.screen.height)
+        const rapport = window.screen.width/ window.screen.height
+        // console.log( rapport )
+        subContent.style.fontSize = rapport<.7 ? '2.7rem' : '1rem'
+        // console.log( subContent.style.fontSize )
+
+        if (subContent.className=="visible"){
+            subContent.style.height = '0px'
+        }
+        else{
+            subContent.style.height = subContent.getAttribute("pref_height")
+        }
+        // console.log( subContent.style.height )
         subContent.className = subContent.className =="visible" ? "hidden" : "visible"
-        console.log( subContent )
-        var t =  subContent.getAttribute("pref_eight")
-        subContent.setAttribute("height", 10)
     }
 
 
@@ -41,6 +52,7 @@
         String.raw`b^4 = -1`, 
         String.raw`\begin{pmatrix} 1 \kern{1em} 3 \\ 2 \kern{1em}  4 \end{pmatrix}`, 
         String.raw`x = \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}`, 
+        String.raw`\hat y`, 
         String.raw`\begin{bmatrix} 3  1  4  1 \\ 2  0  1  3 \\ 7  4  1  8 \\ 2  3  1  4 \end{bmatrix}`, 
     ]
 
@@ -62,37 +74,47 @@
     <br><br>
 <br><br><br>
 <u>Exercice pratique :</u>
+<br>
+Calculer la prévision <span id="ltk10"></span>, donnéé par le réseau de neuronnes ci-dessous, en sachant que : 
 
-Calculer la valeur prévue par le réseau de neuronnes, en sachant que : 
-
-<br> <br>L'image de départ (de taille 2x2) : <span id="ltk8"></span>
+<br> <br>L'image de départ (de taille 2x2) est <span id="ltk8"></span>.
 
 
-<br> <br>Les 4 neuronnes cachés ont actuellement comme paramêtres : <br>
-<table ><tr class="tr_param">
+<br> <br>Les 4 neuronnes de la couche cachée ont les paramêtres suivants : <br><br>
+<table >
+ <tr class="tr_param">
+    <td >Neuronne 1</td>
+    <td >Neuronne 2</td>
+    <td >Neuronne 3</td>
+    <td >Neuronne 4</td>
+    
+ </tr>
+ <tr class="tr_param">
+     <td ><span id="ltk0"></span> </span></td>
     <td ><span id="ltk1"></span> </span></td>
-    <td ><span id="ltk0"></span> </span></td>
     <td ><span id="ltk2"></span> </span></td>
     <td ><span id="ltk3"></span> </span></td>
-</tr></table>
-<br>  et  <table ><tr class="tr_param">
+ </tr>
+ <tr class="tr_param">
     <td ><span id="ltk4"></span> </span></td>
     <td ><span id="ltk5"></span> </span></td>
     <td ><span id="ltk6"></span> </span></td>
     <td ><span id="ltk7"></span> </span></td>
-</tr></table>
+ </tr>
+</table>
 
 <br>
 <div id= "soluce">
 <a onclick="f('soluce')" >Solution : </a> <br><br>
-    <div  class="hidden" pref_eight="4px">
+    <div  class="hidden" pref_height="250px" >
         <div>
             Da solution
+            <br> En applatissant on aura <span id="ltk9"></span> 
         </div>
     </div>
 </div>
 
-<br> En applatissant on aura <span id="ltk9"></span> 
+zqfqzefqz
 
 </body>
 

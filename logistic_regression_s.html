@@ -19,9 +19,9 @@
     }
 
     const formulas = [
-        String.raw`\kern{2em} z^1 = w^t . x^1 + b, \kern{4em}\hat y^1 = \sigma(z^1)`,
-        String.raw`\kern{2em}z^2 = w^t . x^2 + b, \kern{4em}\hat y^2 = \sigma(z^2)`,
-        String.raw`\kern{6em}z^i = w^t . x^i + b, \kern{4em}\hat y^i = \sigma(z^i)`,
+        String.raw`\kern{2em} z^1 = w^t . x^1 + b, \kern{1em}\hat y^1 = \sigma(z^1)`,
+        String.raw`\kern{2em}z^2 = w^t . x^2 + b, \kern{1em}\hat y^2 = \sigma(z^2)`,
+        String.raw`\kern{2em}z^i = w^t . x^i + b, \kern{1em}\hat y^i = \sigma(z^i)`,
         String.raw` X = \begin{bmatrix}  |  & | &  | &  | & ... & | & ... \\ x^1 &x^2 &x^3 &x^4 & ...& x^i & ... \\ |  & | &  | &  | & ... & | & ...\end{bmatrix}`,
         String.raw`(n_x, m)`,
         String.raw`Z = \begin{bmatrix} z^1 &  z^2 &...& z^i &... & z^m \end{bmatrix} = w^t.X+ \begin{bmatrix} b &  b &...& b &... & b \end{bmatrix}`,
@@ -44,14 +44,16 @@
     <br><br>
     <u>Vectorisation de la prévision</u>
     <br>
-    <br>Plutôt que de faire des calculs image par image, on peut faire un traitement par lot (batch) 
+    <br>Plutôt que de faire des calculs image par image, on peut faire un traitement par lot (batch).
 
-    <br>Image 1 : <span id="ltk0"></span>
-    <br>Image 2  : <span id="ltk1"></span>
-    <br> <br>Et ainsi pour chaque image i : <br><span id="ltk2"></span>
-    
+    <br>Image 1 :
+    <br><span id="ltk0"></span>
+    <br>Image 2 :
+    <br><span id="ltk1"></span>
+    <br> <br>Et ainsi pour chaque image i :
+    <br><span id="ltk2"></span>   
     <br><br>
-    <br>En écrivant le vecteur <span id="ltk3"></span> de taille <span id="ltk4"></span>
+    <br>En écrivant la matrice X (comme ensemble de vecteurs entrée),  <span id="ltk3"></span> de taille <span id="ltk4"></span>
 
     <br><br> On aura : <br> 
     <span id="ltk5"></span>
