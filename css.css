@@ -6,6 +6,16 @@
 #big_nn{
   width : 40%;
 }
+table {
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #92CBE5;;
+  padding: 8px;
+  text-align: center;
+  font-family: Arial, sans-serif;    
+  font-size:17px;
+}
 
 
 @media only screen and (max-width: 1000px) {
@@ -17,7 +27,13 @@
   #big_nn{
     width : 100%;
 }
-
+th, td {
+  border: 1px solid #92CBE5;;
+  padding: 8px;
+  text-align: center;
+  font-family: Arial, sans-serif;    
+  font-size:37px;
+}
 }
 
 span {
@@ -26,8 +42,8 @@ span {
  
 body {
     font-family: Arial, sans-serif;    
-    padding : 40px;
     font-size:17px;
+    padding : 40px;
 }
  
 #titre {
@@ -62,14 +78,6 @@ a {
     background-color: #4AA4CE; /* Couleur du soulignement au survol */
   }
 
-table {
-    border-collapse: collapse;
-}
-th, td {
-    border: 1px solid #92CBE5;;
-    padding: 8px;
-    text-align: center;
-}
 
 
 .hidden_div {
