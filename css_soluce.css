@@ -9,7 +9,7 @@
   visibility: visible;
   opacity: 1;
   transition: opacity .5s linear, height .5s linear;
-  height: 120px;
+  height: 140px;
   background-color: #D2E8EF;
   border-radius : 5px;
   padding:10px;

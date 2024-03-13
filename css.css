@@ -1,5 +1,6 @@
 .my_img{
   border: 1px solid #4AA4CE;  
+  
 }
 
 #big_nn{
@@ -10,7 +11,7 @@
 @media only screen and (max-width: 1000px) {
   .my_img{
     border: 1px solid #4AA4CE;  
-    width:10%;
+    width:100%;
   }  
   
   #big_nn{

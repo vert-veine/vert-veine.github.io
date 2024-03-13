@@ -13,10 +13,11 @@
     }
 
     const f = function(id){
-        console.log('zqef')
         const subContent =  document.querySelector("#" +id+ "> div");
-        console.log(subContent)
-    subContent.className = subContent.className =="visible" ? "hidden" : "visible"
+        subContent.className = subContent.className =="visible" ? "hidden" : "visible"
+        console.log( subContent )
+        var t =  subContent.getAttribute("pref_eight")
+        subContent.setAttribute("height", 10)
     }
 
 
@@ -81,11 +82,11 @@ Calculer la valeur prévue par le réseau de neuronnes, en sachant que :
     <td ><span id="ltk7"></span> </span></td>
 </tr></table>
 
+<br>
 <div id= "soluce">
 <a onclick="f('soluce')" >Solution : </a> <br><br>
-    <div  class="hidden">
+    <div  class="hidden" pref_eight="4px">
         <div>
-
             Da solution
         </div>
     </div>
