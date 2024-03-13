@@ -19,9 +19,9 @@
     }
 
     const formulas = [
-        String.raw`\kern{2em} z^1 = w^t . x^1 + b, \kern{1em}\hat y^1 = \sigma(z^1)`,
-        String.raw`\kern{2em}z^2 = w^t . x^2 + b, \kern{1em}\hat y^2 = \sigma(z^2)`,
-        String.raw`\kern{2em}z^i = w^t . x^i + b, \kern{1em}\hat y^i = \sigma(z^i)`,
+        String.raw` z^1 = w^t . x^1 + b, \kern{1em}\hat y^1 = \sigma(z^1)`,
+        String.raw` z^2 = w^t . x^2 + b, \kern{1em}\hat y^2 = \sigma(z^2)`,
+        String.raw` z^i = w^t . x^i + b, \kern{1em}\hat y^i = \sigma(z^i)`,
         String.raw` X = \begin{bmatrix}  |  & | &  | &  | & ... & | & ... \\ x^1 &x^2 &x^3 &x^4 & ...& x^i & ... \\ |  & | &  | &  | & ... & | & ...\end{bmatrix}`,
         String.raw`(n_x, m)`,
         String.raw`Z = \begin{bmatrix} z^1 &  z^2 &...& z^i &... & z^m \end{bmatrix} = w^t.X+ \begin{bmatrix} b &  b &...& b &... & b \end{bmatrix}`,
@@ -53,13 +53,15 @@
     <br> <br>Et ainsi pour chaque image i :
     <br><span id="ltk2"></span>   
     <br><br>
-    <br>En écrivant la matrice X (comme ensemble de vecteurs entrée),  <span id="ltk3"></span> de taille <span id="ltk4"></span>
+    <br>En écrivant la matrice X (comme ensemble de vecteurs entrée),
+    <br>  <span id="ltk3"></span> de taille <span id="ltk4"></span>
 
     <br><br> On aura : <br> 
     <span id="ltk5"></span>
     <br> <span id="ltk6"></span>
 
-    <br><br>Ce qui s'écrit en Python (broadcasting) : Z = np.dot(w.T, X) + b
+    <br><br>Ce qui s'écrit en Python (broadcasting) : 
+    <br> Z = np.dot(w.T, X) + b
 
     <br><br>De même   <span id="ltk7"></span>  s'écrira <span id="ltk8"></span> en Python
 
