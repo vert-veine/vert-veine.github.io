@@ -1,0 +1,88 @@
+.my_img{
+  border: 1px solid #4AA4CE;  
+  
+}
+
+#big_nn{
+  width : 40%;
+}
+table {
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #92CBE5;;
+  padding: 8px;
+  text-align: center;
+  font-family: Arial, sans-serif;    
+  font-size:2.5vh;
+}
+body {
+  font-family: Arial, sans-serif;    
+  font-size:2.5vh;
+  padding : 40px;
+}
+
+@media    (max-width: 1000px) {
+
+  .my_img{
+    border: 1px solid #4AA4CE;  
+    width:100%;
+  }  
+  
+  #big_nn{
+    width : 100%;
+}
+/* th, td {
+  border: 1px solid #92CBE5;;
+  padding: 8px;
+  text-align: center;
+  font-family: Arial, sans-serif;    
+  font-size:4vh;
+} */
+}
+
+span {
+  font-size: 2.5vh;
+}
+ 
+
+ 
+#titre {
+    border: 2px solid #4aa4ce;
+    padding-top : 7px;
+    padding-bottom : 7px;
+    padding-left : 7px;
+    padding-right : 7px;
+    
+    text-align: center; 
+    
+}
+/* Styles de base pour le lien */
+a {
+    color: black; /* Couleur initiale des liens */
+    text-decoration: none; /* Supprimer le soulignement par défaut */
+    position: relative; /* Permet de positionner le pseudo-élément absolument par rapport à son parent */
+  }
+  
+  a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1.5px; /* Positionner le soulignement en dessous du texte */
+    width: 100%;
+    height: 2px; /* Hauteur du soulignement */
+    background-color: #92CBE5; /* Couleur initiale du soulignement */
+    transition: background-color 0.5s ease; /* Transition de la couleur du soulignement */
+  }
+  
+  a:hover::after {
+    background-color: #4AA4CE; /* Couleur du soulignement au survol */
+  }
+
+
+
+.hidden_div {
+  display: none; /* Le contenu est initialement caché */
+  border: 1px solid #4292B7;
+  padding: 8px;
+}

@@ -10,7 +10,7 @@
   opacity: 1;
   transition: opacity .2s linear, height .2s linear;
   height: 200px;
-  background-color: #D2E8EF;
+  background-color: #D0EDE2;
   border-radius : 5px;
   padding:10px;
   border: 1px solid #1B1FA8;
@@ -20,7 +20,7 @@
   opacity: 0;
   height: 0px;
   transition: visibility 0s .2s, opacity .2s linear, height .2s linear;
-  background-color: #D2E8EF;
+  background-color: #D0EDE2;
   border-radius : 5px;
   padding:10px;
   border: 1px solid #1B1FA8;
