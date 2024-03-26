@@ -8,7 +8,7 @@
 .visible {
   visibility: visible;
   opacity: 1;
-  transition: opacity .4s ease-in-out, height .4s ease;
+  transition: opacity .4s ease, height .4s ease;
   height: 200px;
   background-color: #D0EDE2;
   border-radius : 15px;
@@ -19,7 +19,7 @@
   visibility: hidden;
   opacity: 0;
   height: 0px;
-  transition: visibility 0s .4s, opacity .4s  ease-in-out, height .4s ease;
+  transition: visibility 0s .4s, opacity .4s  ease, height .4s ease;
   background-color: #D0EDE2;
   border-radius : 15px;
   padding:10px;
