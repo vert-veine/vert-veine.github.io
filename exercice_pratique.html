@@ -19,20 +19,16 @@
         
         const rapport = window.screen.width/ window.screen.height
         const isP = rapport<.7
-        subContent.style.fontSize = isP ? '2.7rem' : '1rem'
 
         if (subContent.className=="visible"){
             subContent.style.height = '0px'
         }
         else{
             const ph = subContent.getAttribute("pref_height")
-            console.log( 'ph', ph)
             const numH = ph.substring(0, ph.length - 2 )
-            console.log( 'numH', numH)
 
-            const daH = numH * (isP ?1.8 : 1) 
+            const daH = numH * (isP ?2.7 : 1) 
             subContent.style.height = daH + 'px'
-            console.log( subContent.style.height )
         }
         subContent.className = subContent.className =="visible" ? "hidden" : "visible"
     }
@@ -116,7 +112,7 @@ Calculer la prévision <span id="ltk10"></span>, donnéé par le réseau de neur
 <br>
 <div id= "soluce">
 <a onclick="f('soluce')" >Solution : </a> <br><br>
-    <div  class="hidden" pref_height="250px" >
+    <div  class="hidden" pref_height="650px" >
         <div>
             <br> En vectorisant l'image de départ on aura <span id="ltk9"></span>.
             <br>Pour le neuronne 1
