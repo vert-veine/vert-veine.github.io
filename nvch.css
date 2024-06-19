@@ -1,0 +1,14 @@
+.v{
+width: 300px;
+height: 400px;
+}
+
+.h{
+width: 409px;
+height: 300px;
+}
+
+.foto{
+    border : .5px solid #000000;
+    padding : 2px;
+}
