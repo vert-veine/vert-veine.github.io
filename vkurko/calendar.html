@@ -23,8 +23,6 @@
             color: #000 !important;
             font-family: Arial !important;
         }
-
-
         .ec-timeline .ec-time,
         .ec-timeline .ec-line {
             width: 80px;
@@ -78,6 +76,7 @@
             ],
             scrollTime: '09:00:00',
             events: createEvents(),
+            
             views: {
                 timeGridWeek: { pointer: true },
                 resourceTimeGridWeek: { pointer: true },
@@ -113,10 +112,12 @@
                     ec.unselect();
                     return;
                 }
-                console.log('here')
+                console.log('selection manuelle d une plage')
                 showModal(event);
             },
-            eventClick: function () { console.log('toto') }
+            eventClick: function ({event}) { 
+                showModal(event);
+            }
         });
         function getOverlappingEvents(event) {
             // select event has event.resource.id
@@ -236,6 +237,11 @@
                 addEvent(event);
                 dialog.close();
             }
+
+            document.getElementById('cancel').onclick = function() {
+  dialog.close();
+};
+
 
         </script>
     </dialog>
