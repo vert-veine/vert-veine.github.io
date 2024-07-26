@@ -1,0 +1,28 @@
+#rect_blue{
+    width:40px;
+    height:40px;
+    background:#779ECB;
+    border: solid #000 5px;
+}
+
+#rect_red{
+    width:40px;
+    height:40px;
+    background:#FE6B64;
+    border-width: 0px;
+    border: solid #000 0px;
+}
+
+#rect_purple{
+    width:40px;
+    height:40px;
+    background:#B29DD9;
+    border: solid #000 0px;
+}
+
+#rect_green{
+    width:40px;
+    height:40px;
+    background:#5FD885;
+    border: solid #000 0px;
+}
