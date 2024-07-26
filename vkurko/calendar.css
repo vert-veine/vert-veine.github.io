@@ -1,3 +1,8 @@
+#date{
+    font-weight: bold;
+}
+
+
 #rect_blue{
     width:40px;
     height:40px;
@@ -25,4 +30,12 @@
     height:40px;
     background:#5FD885;
     border: solid #000 0px;
+}
+
+#comment {
+    position:relative;
+	width: 100%;
+  top: 0; left: 0; right: 0; bottom: 0;
+  position: relative;
+
 }
