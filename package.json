@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "svelte-image-gallery": "^1.7.1"
+  }
+}
