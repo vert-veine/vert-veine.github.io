@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <!-- adapted from https://codepen.io/takatama/pen/ExOwWXO/ -->
@@ -115,7 +115,7 @@
                 days[i] = day.getFullYear() + "-" + _pad(day.getMonth() + 1) + "-" + _pad(day.getDate());
             }
 
-            return [
+            const rslts = [
                 { start: days[0] + " 00:00", end: days[0] + " 09:00", resourceId: 1, display: "background" },
                 { start: days[1] + " 12:00", end: days[1] + " 14:00", resourceId: 2, display: "background" },
                 { start: days[2] + " 17:00", end: days[2] + " 24:00", resourceId: 1, display: "background" },
@@ -129,6 +129,11 @@
                 { start: days[5] + " 18:00", end: days[5] + " 21:00", resourceId: 2, title: "", color: "#B29DD9" },
                 { start: days[1], end: days[3], resourceId: 1, title: "All-day events can be displayed at the top", color: "#B29DD9", allDay: true }
             ];
+
+
+                console.log(rslts)
+
+            return rslts
         }
 
         function _pad(num) {
