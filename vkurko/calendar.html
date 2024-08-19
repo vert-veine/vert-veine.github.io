@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- adapted from https://codepen.io/takatama/pen/ExOwWXO/ -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Event Calendar</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@event-calendar/build@3.2.2/event-calendar.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@event-calendar/build@3.2.2/event-calendar.min.js"></script>
+
+    <!-- DayJS -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/dayjs.min.js"></script>
+
+    <style>
+        html * {
+            font-size: 1em !important;
+            color: #000 !important;
+            font-family: Arial !important;
+        }
+
+        .ec-timeline .ec-time,
+        .ec-timeline .ec-line {
+            width: 80px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="calendar.css">
+</head>
+
+<body>
+
+    <header class="row">
+
+    </header>
+    <main class="row">
+        <div id="ec" class="col"></div>
+    </main>
+
+    <script type="text/javascript">
+        // const dayjs_fr =         dayjs.locale('fr');
+
+        const ec = new EventCalendar(document.getElementById('ec'), {
+            ti: false,
+            view: 'timeGridWeek',
+            headerToolbar: {
+                start: 'prev,next today',
+                center: 'title',
+                end: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek resourceTimeGridWeek,resourceTimelineWeek'
+            },
+            resources: [
+                { id: 1, title: 'Resource A' },
+                { id: 2, title: 'Resource B' }
+            ],
+            scrollTime: '09:00:00',
+            events: createEvents(),
+            views: {
+                timeGridWeek: { pointer: true },
+                resourceTimeGridWeek: { pointer: true },
+                resourceTimelineWeek: {
+                    pointer: true,
+                    slotMinTime: '09:00',
+                    slotMaxTime: '21:00',
+                    slotWidth: 80,
+                    resources: [
+                        { id: 1, title: 'Resource A' },
+                        { id: 2, title: 'Resource B' },
+                    ]
+                }
+            },
+            dayMaxEvents: true,
+            nowIndicator: true,
+            selectable: true,
+
+            select: function (event) {
+                if (hasOverlappingEvents(event)) {
+                    ec.unselect();
+                    return;
+                }
+                show__Modal(event);
+            },
+            eventClick: function ({ event }) {
+                show__Modal(event);
+            },
+            eventDragStop: function ({ event }) {
+                show__Form({ event })
+            },
+        });
+
+        function getOverlappingEvents(event) {
+            // select event has event.resource.id
+            // eventDrop event has event.resourceIds
+            const rId = event.resource ? event.resource.id : 'toto';
+            return ec.getEvents().filter(e => e.resourceIds[0] == rId && e.start < event.end && event.start < e.end);
+        }
+
+        function hasOverlappingEvents(event) {
+            return getOverlappingEvents(event).length > 0;
+        }
+
+        function hasOtherOverlappingEvents(event) {
+            return getOverlappingEvents(event).filter(e => e.id != event.id).length > 0
+        }
+
+
+
+        function createEvents() {
+            let days = [];
+            for (let i = 0; i < 7; ++i) {
+                let day = new Date();
+                let diff = i - day.getDay();
+                day.setDate(day.getDate() + diff);
+                days[i] = day.getFullYear() + "-" + _pad(day.getMonth() + 1) + "-" + _pad(day.getDate());
+            }
+
+            const rslts = [
+                { start: days[0] + " 00:00", end: days[0] + " 09:00", resourceId: 1, display: "background" },
+                { start: days[1] + " 12:00", end: days[1] + " 14:00", resourceId: 2, display: "background" },
+                { start: days[2] + " 17:00", end: days[2] + " 24:00", resourceId: 1, display: "background" },
+                { start: days[0] + " 10:00", end: days[0] + " 14:00", resourceId: 1, title: "The calendar can display background and regular events", color: "#FE6B64" },
+                { start: days[1] + " 16:00", end: days[2] + " 08:00", resourceId: 2, title: "An event may span to another day", color: "#B29DD9" },
+                { start: days[2] + " 09:00", end: days[2] + " 13:00", resourceId: 2, title: "Events can be assigned to resources and the calendar has the resources view built-in", color: "#779ECB" },
+                { start: days[3] + " 14:00", end: days[3] + " 20:00", resourceId: 1, title: "", color: "#FE6B64" },
+                { start: days[3] + " 15:00", end: days[3] + " 18:00", resourceId: 1, title: "Overlapping events are positioned properly", color: "#779ECB" },
+                { start: days[5] + " 10:00", end: days[5] + " 16:00", resourceId: 2, title: { html: "You have complete control over the <i><b>display</b></i> of events…" }, color: "#779ECB" },
+                { start: days[5] + " 14:00", end: days[5] + " 19:00", resourceId: 2, title: "…and you can drag and drop the events!", color: "#FE6B64" },
+                { start: days[5] + " 18:00", end: days[5] + " 21:00", resourceId: 2, title: "", color: "#B29DD9" },
+                { start: days[1], end: days[3], resourceId: 1, title: "All-day events can be displayed at the top", color: "#B29DD9", allDay: true }
+            ];
+
+
+                console.log(rslts)
+
+            return rslts
+        }
+
+        function _pad(num) {
+            let norm = Math.floor(Math.abs(num));
+            return (norm < 10 ? '0' : '') + norm;
+        }
+
+    </script>
+
+
+    <dialog id="dialog">
+        <form id="form" method="dialog">
+
+            <table width="100%">
+                <tr>
+                    <td width="50%" align="center"><input type="radio" id="radio1" name="radio_cal" value="1" checked />
+                        <label for="radio1">Calend. A</label>
+                    </td>
+                    <td width="50%" align="center"><input type="radio" id="radio2" name="radio_cal" value="2" /> <label
+                            for="radio2">Calend. B</label></td>
+                </tr>
+                <tr>
+                    <td height="10px"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2" width="100%" align="center">
+                        <div id="date"></div>
+                    </td>
+                </tr>
+            </table>
+
+            <div>
+                <table width="100%">
+                    <tr>
+                        <td height="10px"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td width="25%" align="center">
+                            <div id="rect_blue" onclick="select_color(0)"></div>
+                        </td>
+                        <td width="25%" align="center">
+                            <div id="rect_red" onclick="select_color(1)"></div>
+                        </td>
+                        <td width="25%" align="center">
+                            <div id="rect_green" onclick="select_color(2)"></div>
+                        </td>
+                        <td width="25%" align="center">
+                            <div id="rect_purple" onclick="select_color(3)"></div>
+                        </td>
+                    </tr>
+                </table>
+
+                <br>
+                <table>
+                    <tr>
+                        <td><label for="start">Start:</label>
+                            <input type="time" id="start" name="start-time">
+                        </td>
+                        <td width="20"></td>
+                        <td><label for="end">End:</label>
+                            <input type="time" id="end" name="end-time">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"> <textarea id="comment" name="comment"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><button id="cancel" type="reset">Cancel</button></td>
+                        <td colspan="2" align="center"><button id="confirm" type="submit">Confirm</button></td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+
+            <menu>
+
+
+            </menu>
+        </form>
+
+        <script>
+            // Var globale
+            document.selectColor = 0
+
+            const select_color = (c) => {
+                ids = ['rect_blue', 'rect_red', 'rect_green', 'rect_purple',]
+                for (let i = 0; i < ids.length; i++) {
+                    const css_v = (i == c) ? "5px" : "0px"
+                    document.getElementById(ids[i]).style.border = "solid #000 " + css_v
+                }
+                document.selectedColor = c
+            }
+
+            function addEvent(event) {
+                if (event.id) {
+                    ec.updateEvent(event);
+                    return;
+                }
+                event.id = new Date().getTime();
+
+                ec.addEvent(event);
+                ec.unselect();
+
+                console.log('ici', event)
+            }
+
+            document.getElementById('form').onsubmit = function (e) {
+                e.preventDefault();
+
+                // On récupère cet ev global
+                const event = dialog.event;
+
+                const startTime = document.getElementById('start').value.split(':');
+                event.start.setHours(Number(startTime[0]));
+                event.start.setMinutes(Number(startTime[1]));
+
+                const endTime = document.getElementById('end').value.split(':');
+                event.end.setHours(Number(endTime[0]));
+                event.end.setMinutes(Number(endTime[1]));
+
+                const comment = document.getElementById('comment').value;
+                event.title = comment;
+
+                const num_cal = document.querySelector('input[name="radio_cal"]:checked').value;
+                event.resourceIds = [num_cal] // tous les cas, un evt appartien à plusieurs plus tard
+
+                addEvent(event);
+                dialog.close();
+            }
+
+            document.getElementById('cancel').onclick = function () {
+                dialog.close();
+            };
+
+            function show__Modal(event) {
+                // TODO
+                function getResourceTitle(event) {
+                    const resourceId = event.resourceIds ? event.resourceIds[0] : 1;
+                    return resourceId
+                }
+                const startDate = dayjs(event.start);
+                const jour_semaine = new Intl.DateTimeFormat('fr', { weekday: 'long' }).format(startDate)
+                const da_date = new Intl.DateTimeFormat('fr', { weekdayday: 'long' }).format(startDate)
+                document.getElementById('date').innerText = jour_semaine + " " + da_date
+                document.getElementById('start').value = startDate.format('HH:mm');
+                document.getElementById('end').value = dayjs(event.end).format('HH:mm');
+                document.getElementById('comment').value = event.title || '';
+
+                const cal_num = getResourceTitle(event)
+                document.getElementById('radio' + cal_num).checked = true;
+
+                // On affecte l'ev en cours en var globale
+                dialog.event = event;
+                dialog.showModal();
+            }
+        </script>
+    </dialog>
+
+    <dialog id="toto">
+        <form id="form_confirm" method="dialog">
+            <h2>Confirm modification</h2>
+            <menu>
+                <button id="cancel2" type="reset">Cancel</button>
+                <button id="confirm" type="submit">Confirm</button>
+            </menu>
+        </form>
+
+        <script>
+            function show__Form({ event, tata }) {
+                document.getElementById('toto').showModal();
+                toto.eventCalendar_infos = event
+            }
+
+            document.getElementById('form_confirm').onsubmit = function (e) {
+                // e.preventDefault();
+                // const event = dialog.event;
+                toto.close();
+            }
+
+            document.getElementById('cancel2').onclick = function (e) {
+                ec.updateEvent(toto.eventCalendar_infos)
+                toto.close();
+            };
+        </script>
+    </dialog>
+
+</body>
+
+</html>
