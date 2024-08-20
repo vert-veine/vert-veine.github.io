@@ -1,3 +1,0 @@
-ssh -A  bachri@ssh-bachri.alwaysdata.net
-
-PWD : calendar
