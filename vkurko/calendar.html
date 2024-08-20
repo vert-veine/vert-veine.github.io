@@ -104,8 +104,6 @@
             return getOverlappingEvents(event).filter(e => e.id != event.id).length > 0
         }
 
-
-
         function createEvents() {
             let days = [];
             for (let i = 0; i < 7; ++i) {
@@ -130,9 +128,6 @@
                 { start: days[1], end: days[3], resourceId: 1, title: "All-day events can be displayed at the top", color: "#B29DD9", allDay: true }
             ];
 
-
-                console.log(rslts)
-
             return rslts
         }
 
@@ -144,8 +139,8 @@
     </script>
 
 
-    <dialog id="dialog">
-        <form id="form" method="dialog">
+    <dialog id="dialog_calE">
+        <form id="form_e" method="dialog">
 
             <table width="100%">
                 <tr>
@@ -219,35 +214,53 @@
 
         <script>
             // Var globale
-            document.selectColor = 0
+            document.selectedColor = 0
+            const colors = ["blue", "red", "green", "purple"]
+            document.color_events = { blue: "#779ECB", red: "#FE6B64", green: "#5FD885", purple: "#B29DD9" }
+
+            const getColoredSquareElement = (da_color) => {
+                let rslt_color = 0
+                for (const [i, c] of Object.values(document.color_events).entries()) {
+                    if (c == da_color) {
+                        rslt_color = i
+                        break
+                    }
+                }
+                return rslt_color
+            }
+
+            const getColor = (i) => {
+                if (i >=0  && i<4) 
+                    return document.color_events[colors[i]]                
+                return document.color_events.blue
+            }
 
             const select_color = (c) => {
-                ids = ['rect_blue', 'rect_red', 'rect_green', 'rect_purple',]
-                for (let i = 0; i < ids.length; i++) {
+                for (let i = 0; i < colors.length; i++) {
                     const css_v = (i == c) ? "5px" : "0px"
-                    document.getElementById(ids[i]).style.border = "solid #000 " + css_v
+                    document.getElementById('rect_' + colors[i]).style.border = "solid #000 " + css_v
                 }
                 document.selectedColor = c
             }
 
-            function addEvent(event) {
+            function my_addEvent(event) {
                 if (event.id) {
                     ec.updateEvent(event);
                     return;
                 }
                 event.id = new Date().getTime();
 
+                // event.backgroundColor = getColor(document.selectedColor)
                 ec.addEvent(event);
                 ec.unselect();
-
-                console.log('ici', event)
             }
 
-            document.getElementById('form').onsubmit = function (e) {
+            // Récupération de l'evt à partir de sdonénes de la fenêtre modale
+            document.getElementById('form_e').onsubmit = function (e) {
                 e.preventDefault();
 
                 // On récupère cet ev global
-                const event = dialog.event;
+                const event = dialog_calE.event;
 
                 const startTime = document.getElementById('start').value.split(':');
                 event.start.setHours(Number(startTime[0]));
@@ -261,16 +274,19 @@
                 event.title = comment;
 
                 const num_cal = document.querySelector('input[name="radio_cal"]:checked').value;
-                event.resourceIds = [num_cal] // tous les cas, un evt appartien à plusieurs plus tard
+                event.resourceIds = [num_cal] // tous les cas, un evt appartient à plusieurs calendrier plus tard
 
-                addEvent(event);
-                dialog.close();
+                event.backgroundColor = getColor(document.selectedColor)
+                
+                my_addEvent(event);
+                dialog_calE.close();
             }
 
             document.getElementById('cancel').onclick = function () {
-                dialog.close();
+                dialog_calE.close();
             };
 
+            // Affiche un calEvent dans la fenêtre modale
             function show__Modal(event) {
                 // TODO
                 function getResourceTitle(event) {
@@ -284,13 +300,15 @@
                 document.getElementById('start').value = startDate.format('HH:mm');
                 document.getElementById('end').value = dayjs(event.end).format('HH:mm');
                 document.getElementById('comment').value = event.title || '';
+                const ce = getColoredSquareElement(event.backgroundColor) // TODO : récuper from CSS
+                select_color(ce)
 
                 const cal_num = getResourceTitle(event)
                 document.getElementById('radio' + cal_num).checked = true;
 
                 // On affecte l'ev en cours en var globale
-                dialog.event = event;
-                dialog.showModal();
+                dialog_calE.event = event;
+                dialog_calE.showModal();
             }
         </script>
     </dialog>
